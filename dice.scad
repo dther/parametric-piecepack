@@ -26,6 +26,7 @@ face_plate=0.5;
 
 // Faces (SVG files)
 face_1="svg/sun_small_new.svg"; // Ace
+face_1_size=15;
 face_2=""; // 2
 face_3=""; // 3
 face_4=""; // 4
@@ -48,12 +49,19 @@ module face_trunc_pyramid(thickness, size) {
 };
 
 module hinge_socket(diameter, length) {
-    union() {
-        difference() {
+    difference() {
+        union() {
             cyl(length+5, d=diameter, orient=ORIENT_X, $fn = 20);
-            hinge_pin(diameter+0.1, length+1);
+            translate([length-2,diameter/2,0]) {
+                right_triangle([diameter/2, diameter, diameter], center=true,
+                        orient=ORIENT_X);
+            }
+            translate([-(length-2),diameter/2,0]) {
+                right_triangle([diameter/2, diameter, diameter], center=true,
+                        orient=ORIENT_X);
+            }
         }
-        //TODO: add support?
+        hinge_pin(diameter+0.1, length+1);
     }
 
 };
@@ -65,10 +73,14 @@ module hinge_pin(diameter, length) {
         translate([0,0,-diameter/2]) {
             cube([length-2, diameter/2, diameter/2], true);
         }
+        translate([0,diameter/2,0]) {
+            right_triangle([diameter/2, diameter, diameter], center=true,
+                    orient=ORIENT_X);
+        }
     }
 }
 
-module face(thickness=1, size=22, pin_diameter=4, pin_length=6, symbol="", number) {
+module face(thickness=1, size=22, pin_diameter=4, pin_length=6, symbol="", number, symbol_size) {
     //TODO:this
     face_difference=(thickness/tan(DIHEDRAL_ANGLE));
     pin_position=(size/2)-face_difference-(pin_diameter/2);
@@ -77,22 +89,21 @@ module face(thickness=1, size=22, pin_diameter=4, pin_length=6, symbol="", numbe
         difference() {
             face_trunc_pyramid(thickness, size);
             if (number == undef) {
-            linear_extrude(height=0.5, center=true) resize([size/2,size/2,0]) import(symbol, center=true);
+                linear_extrude(height=0.5, center=true) resize([symbol_size, symbol_size,0]) import(symbol, center=true);
             }
             else {
-            linear_extrude(height=0.5, center=true) mirror([1,0,0]) text(number, font="Liberation Sans:style=Bold", valign="center", halign="center");
+                linear_extrude(height=0.5, center=true) mirror([1,0,0]) text(number, font="Liberation Sans:style=Bold", valign="center", halign="center");
             }
-            //Hmm.
         }
-        translate([0, pin_position, thickness+pin_diameter/2]){ //find less hacky and inexact pin spacing method
-            hinge_socket(pin_diameter, pin_length);
+        translate([0, pin_position, thickness+pin_diameter/2]){
+            mirror([0,1,0]) hinge_socket(pin_diameter, pin_length);
         }
         translate([0, -pin_position, thickness+pin_diameter/2]){
             hinge_socket(pin_diameter, pin_length);
         }
         rotate([0,0,90]) {
             translate([0, pin_position, thickness+pin_diameter/2]){
-                hinge_pin(pin_diameter, pin_length);
+                mirror([0,1,0]) hinge_pin(pin_diameter, pin_length);
             }
             translate([0, -pin_position, thickness+pin_diameter/2]){
                 hinge_pin(pin_diameter, pin_length);
@@ -120,12 +131,11 @@ translate([0,-face_size,0]) rotate([0,0,90]) face(face_thickness, face_size, pin
 }
 */
 union() {
-face(face_thickness, face_size, pin_diameter, pin_length, symbol=face_1);
+face(face_thickness, face_size, pin_diameter, pin_length, symbol_size=face_1_size, symbol=face_1);
 translate([face_size,0,0]) rotate([0,0,90]) face(face_thickness, face_size, pin_diameter, pin_length, number="4");
 translate([-face_size,0,0]) rotate([0,0,90]) face(face_thickness, face_size, pin_diameter, pin_length, number="3");
 translate([2*face_size,0,0]) face(face_thickness, face_size, pin_diameter, pin_length);
 translate([0,face_size,0]) rotate([0,0,90]) face(face_thickness, face_size, pin_diameter, pin_length, number="5");
 translate([0,-face_size,0]) rotate([0,0,90]) face(face_thickness, face_size, pin_diameter, pin_length, number="2");
 }
-/*
-}*/
+//}
