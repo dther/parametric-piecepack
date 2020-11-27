@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="coin_ace.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="81.515083"
+     inkscape:cy="130.77496"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="true"
+     inkscape:window-width="1364"
+     inkscape:window-height="736"
+     inkscape:window-x="0"
+     inkscape:window-y="15"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid833" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       sodipodi:type="spiral"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.065;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path837"
+       sodipodi:cx="10.583333"
+       sodipodi:cy="9.260417"
+       sodipodi:expansion="1"
+       sodipodi:revolution="2"
+       sodipodi:radius="10.332309"
+       sodipodi:argument="-12.004472"
+       sodipodi:t0="0.059"
+       d="M 10.744454,9.8483453 C 10.40174,10.730624 9.1783502,10.297566 8.7497937,9.7628961 7.7937406,8.570118 8.5431558,6.8655098 9.7394958,6.1812668 11.647785,5.0898263 14.008644,6.2076217 14.908094,8.0752216 16.160609,10.675919 14.651419,13.729517 12.109886,14.830789 8.8236677,16.254741 5.0646144,14.345376 3.76735,11.128329 2.1669024,7.1594259 4.4805761,2.6889821 8.3740633,1.198823 13.024232,-0.58094156 18.209335,2.1392942 19.890538,6.7097892 20.855381,9.3328001 20.620341,12.29615 19.326997,14.765409" />
+  </g>
+</svg>
