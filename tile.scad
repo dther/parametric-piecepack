@@ -67,12 +67,34 @@ module top_corners(size=size, tile_thickness=thickness, top_thickness=inlay_dept
     }
 }
 
-
+module tile(rank="", rank_file, thickness=thickness, size=size) {
 union() {
 difference() {
     tile_body();
-    inlay(rank_file=ace, corner_size=corner_size);
+    if (rank_file==undef) {
+        inlay(rank=rank, corner_size=corner_size);
+    }
+    else {
+        inlay(rank_file=rank_file, corner_size=corner_size);
+    }
 }
 top_cross();
 top_corners();
 }
+}
+
+/*
+translate([-(size+5), 0, 0]) tile();
+tile(rank_file=ace);
+translate([0, size+5, 0])tile(rank="2");
+translate([size+5, 0, 0])tile(rank="3");
+translate([size+5, size+5, 0])tile(rank="4");
+translate([-(size+5), (size+5), 0 ])tile(rank="5");
+*/
+
+translate([-(size+5), 0, 0]) inlay();
+inlay(rank_file=ace);
+translate([0, size+5, 0])inlay(rank="2");
+translate([size+5, 0, 0])inlay(rank="3");
+translate([size+5, size+5, 0])inlay(rank="4");
+translate([-(size+5), (size+5), 0 ])inlay(rank="5");
