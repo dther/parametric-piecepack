@@ -25,7 +25,10 @@ pin_length=6;
 face_plate=0.5;
 
 // Faces (SVG files)
-face_1="svg/sun_small_new.svg"; // Ace
+face_1="svg/sun_small.svg"; // Ace
+//face_1="svg/moon_small.svg"; // Ace
+//face_1="svg/crown_small.svg"; // Ace
+//face_1="svg/arms_small.svg"; // Ace
 face_1_size=15;
 face_2=""; // 2
 face_3=""; // 3
@@ -68,9 +71,6 @@ module hinge_socket(diameter, length) {
 module hinge_pin(diameter, length) {
     union() {
         cyl(length, d=diameter, chamfer=1,chamfang=45, orient=ORIENT_X, $fn = 20);
-        translate([0,0,-diameter/2]) {
-            cube([length-2, diameter/2, diameter/2], true);
-        }
         translate([0,diameter/2,0]) {
             right_triangle([diameter/2, diameter, diameter], center=true,
                     orient=ORIENT_X);
@@ -86,7 +86,7 @@ module face(thickness=1, size=22, pin_diameter=4, pin_length=6, symbol="", numbe
         difference() {
             face_trunc_pyramid(thickness, size);
             if (number == undef) {
-                linear_extrude(height=0.5, center=true) resize([symbol_size, symbol_size,0]) import(symbol, center=true);
+                linear_extrude(height=0.5, center=true) resize([symbol_size, symbol_size,0]) mirror([1,0,0]) rotate([0,0,-90]) import(symbol, center=true);
             }
             else {
                 linear_extrude(height=0.5, center=true) mirror([1,0,0]) text(number, font="Liberation Sans:style=Bold", valign="center", halign="center");
