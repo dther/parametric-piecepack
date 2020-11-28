@@ -37,7 +37,6 @@ face_6=""; // Null
 DIHEDRAL_ANGLE=45; //dihedral angle of a square
 
 module face_trunc_pyramid(thickness, size) {
-    //TODO: this
     //i don't know if this is right. Investigate.
     // hey hey hey! I used high school math to solve a problem!
     difference=(thickness/tan(DIHEDRAL_ANGLE))*2;
@@ -67,7 +66,6 @@ module hinge_socket(diameter, length) {
 };
 
 module hinge_pin(diameter, length) {
-    //TODO: this
     union() {
         cyl(length, d=diameter, chamfer=1,chamfang=45, orient=ORIENT_X, $fn = 20);
         translate([0,0,-diameter/2]) {
@@ -81,7 +79,6 @@ module hinge_pin(diameter, length) {
 }
 
 module face(thickness=1, size=22, pin_diameter=4, pin_length=6, symbol="", number, symbol_size) {
-    //TODO:this
     face_difference=(thickness/tan(DIHEDRAL_ANGLE));
     pin_position=(size/2)-face_difference-(pin_diameter/2);
     union() {
