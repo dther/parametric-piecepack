@@ -2,7 +2,7 @@ diameter = 24; // Should be less than or equal to half of the tile's size.
 thickness = 3;
 //You'll want to pause the print and change filaments at layer (thickness/0.1), assuming a layer height of 0.1.
 inlay_depth = 0.4; // Depth of suit inlay. Should be dependent on layer height.
-suit = "svg/small_moon.svg"; //svg of suit.
+suit = "svg/moon_small.svg"; //svg of suit.
 ace_file = "svg/coin_ace.svg"; //svg of ace.
 
 /* Extrude a cylinder... */
