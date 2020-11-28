@@ -1,4 +1,5 @@
-# Dther's 3D-Printed Piecepack
+# Dther's 3D-Printed Parametric Piecepack
+(or, the 3DPPP.)
 
 There are a few 3D printed piecepacks floating around.
 Unfortunately, all of them have the caveat that they're mono-coloured,
@@ -18,7 +19,15 @@ by simply changing the parameters to another suit.
 As a bonus, I can also print out the expansions (e.g. Four seasons, elements, card suits)
 by simply introducing new .svg files.
 
+## Design Goals
+
+All the models produced by these files should:
+ - Be printable on a single-extruder, consumer FFD printer,
+ - Be multi-coloured
+ - Require next to no post processing. Anything more complicated than pulling off ooze strings and using a sharpie should be optional.
+
 ## Licensing
 
-The .stl files are provided under CC-BY-SA-4.0.
-The OpenSCAD code is provided under GPL-v3.
+Everything here is provided under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+The dice.scad file requires the [OpenSCAD BOSL library](https://github.com/revarbat/BOSL)
+(The OpenSCAD Belfry OpenSCAD Library library), which is licensed under BSD 2-Clause license.
