@@ -28,6 +28,6 @@ All the models produced by these files should:
 
 ## Licensing
 
-Everything here is provided under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Everything here is provided under [CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 The dice.scad file requires the [OpenSCAD BOSL library](https://github.com/revarbat/BOSL)
 (The OpenSCAD Belfry OpenSCAD Library library), which is licensed under BSD 2-Clause license.
