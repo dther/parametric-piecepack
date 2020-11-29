@@ -1,7 +1,7 @@
 //variables
 // dimensions
-size=50;
-thickness=4;
+size=60;
+thickness=3;
 inlay_depth=0.4;
 
 font="Liberation Sans:style=Bold";
@@ -26,7 +26,7 @@ corner="svg/arms_small.svg";
 corner_size=size/4;
 */
 
-module inlay(rank="", rank_file, corner_file=corner, size=size, depth=inlay_depth, font=font, corner_size) {
+module inlay(rank="", rank_file, corner_file=corner, size=size, depth=inlay_depth, font=font, corner_size=corner_size) {
     translate([0, 0, -(thickness/2)+(depth/2)]) mirror([1,0,0]) {
         union() {
         //Center
@@ -83,18 +83,19 @@ top_corners();
 }
 }
 
-/*
+
 translate([-(size+5), 0, 0]) tile();
 tile(rank_file=ace);
 translate([0, size+5, 0])tile(rank="2");
 translate([size+5, 0, 0])tile(rank="3");
 translate([size+5, size+5, 0])tile(rank="4");
 translate([-(size+5), (size+5), 0 ])tile(rank="5");
-*/
 
+/*
 translate([-(size+5), 0, 0]) inlay();
 inlay(rank_file=ace);
 translate([0, size+5, 0])inlay(rank="2");
 translate([size+5, 0, 0])inlay(rank="3");
 translate([size+5, size+5, 0])inlay(rank="4");
 translate([-(size+5), (size+5), 0 ])inlay(rank="5");
+*/
